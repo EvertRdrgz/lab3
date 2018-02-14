@@ -1,0 +1,17 @@
+PHP
+
+Potential Functions:
+getHand(); 
+Returns an array of cards per player
+
+displayHand(); 
+Displays the array of cards per player along with the sum of points
+
+displayWinners(); 
+Display winner(s) along with points obtained.
+
+CSS
+
+
+
+HTML
