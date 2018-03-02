@@ -132,7 +132,7 @@
 	        $playerScore[$i] = $player[$i][count($player[$i])-1];
 	        
 	        array_push($FinalScore, $playerScore[$i]);
-	        echo '<span style="font-size: 20px;"><b>' . $playerScore[$i] . '</b></span>';
+	        echo '<span style="font-size: 30px;"><b>' . $playerScore[$i] . '</b></span>';
 	        
         }
         
@@ -148,22 +148,34 @@
 <!DOCTYPE html>
 <html>
     <style type="text/css" href ="css/style.css" rel ="styles">
-    body, div  {
-           /*background-image:url("img/background.jpg");*/
+    
+  
+    
+    body {
+        background-color: darkgreen;
+    }
+     div  {
+          background-image:url("img/border.jpg");
+          text-align: left;
+          color: red;
         }
         h1 {
             text-align: center;
             color: white;
             font-size: 4em;
-            background-color: black;
+            background-color: red;
         }
         
         h2 {
             text-align: center;
             padding: 150px;
-            color: black;
+            color: red;
             display: inline;
             font-size: 2em;
+        }
+        
+        footer, #csumbLogo {
+            text-align: center;
         }
         
     
@@ -172,10 +184,8 @@
         <title>Lab #3: SilverJack Card Game </title>
     </head>
     
-     <h1 style="color:powderblue;"> World Series of Poker</h1>
-     <h2 style="color:powderblue;"> Player: </h2>
-     <h2 style="color:powderblue;"> Cards:</h2>
-     <h2 style="color:powderblue;"> Score:</h2>
+     <h1 style="color:white;"> World Series of Poker</h1>
+ 
      
     <div>
       <?php 
@@ -187,5 +197,13 @@
     <body>
 
     </body>
+    
+    <footer>
+        <hr> CST 336 Internet Programming. 2018 &copy; Logan Louks<br />
+                <strong> Disclaimer: <strong>
+                  All information in this website belongs to Evert, Pierre, Simirit, and Logan and is used for Academic and Business purposes.
+                  <a href="http://csumb.edu">California State University, Monterey Bay</a>
+                   <p><img id ="csumbLogo" src="img/csumblogo.png"  alt ="Picture of CSU Monterey logo (Otter)" /></p>
+    </footer>
     
 </html>
