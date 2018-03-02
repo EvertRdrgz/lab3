@@ -65,28 +65,51 @@
        }   
     }
     
+    
+    
         //Displays the Total / AVG Time for Games Played
     function displayTime()
     {
         global $timeStart;
         $timeInSeconds = microtime(true) - $timeStart;
-        echo "This Game Took: " . $timeInSeconds . " in seconds (MicroTime) <br /><br/>";
-        echo "Total Matches:"  . $_SESSION['gameCount'] . "<br />";
+        echo "<h3>This Game Took: " . $timeInSeconds . " in seconds (MicroTime) </h3><br /><br/>";
+        echo "<h3>Total Matches:"  . $_SESSION['gameCount'] . "</h3><br />";
         $_SESSION['finalTime'] += $timeInSeconds;
-        echo "Total Time for All Matches: " .  $_SESSION['finalTime'] . "<br /><br />";
-        echo "Average Time Per Game: " . ( $_SESSION['finalTime']  / $_SESSION['gameCount']);
+        echo "<h3>Total Time for All Matches: " .  $_SESSION['finalTime'] . "</h3><br /><br />";
+        echo "<h3>Average Time Per Game: " . ( $_SESSION['finalTime']  / $_SESSION['gameCount'])."</h3>";
         $_SESSION['gameCount']++; 
     } 
     
     //Display the winner base on a list of final score
     function displayWinner($score, $players)
     {
+        //print_r($score);
+        
+        //print_r($players);
+        
+        $possible_winning_scores_array = array();
+        
+        for ($index=0; $index<4;$index++){
+            if($score[$index] <= 42){
+                array_push($possible_winning_scores_array,$score[$index]);
+            }
+        }
+        
+        $max_score =  (max($possible_winning_scores_array));
+        echo $max_score;
+        $winning_index_array = array();
+        
+        for($index = 0;$index<4;$index++){
+            if($score[$index]==$max_score){
+                echo "</br><h1>".$players[$index]." WINS!</h1>";
+            }
+        }
     }
     
     // Play game function
     function startSilverJack() 
     {
-        $players = array("player0", "player1", "player2", "player3");           
+        $players = array("Evert", "Simrit", "Pierre", "Logan");           
         $cards = array();
         $FinalScore = array();
         for($i=0; $i<52; $i++)
@@ -94,6 +117,7 @@
             $cards[] = 0;
         }
         shuffle($cards);
+        shuffle($players);
         
         for($i = 0; $i < 4; $i++)
         {
@@ -109,6 +133,7 @@
 	        
 	        array_push($FinalScore, $playerScore[$i]);
 	        echo '<span style="font-size: 20px;"><b>' . $playerScore[$i] . '</b></span>';
+	        
         }
         
         displayWinner($FinalScore, $players);
@@ -135,7 +160,7 @@
         
         h2 {
             text-align: center;
-            padding: 250px;
+            padding: 150px;
             color: black;
             display: inline;
             font-size: 2em;
@@ -148,7 +173,7 @@
     </head>
     
      <h1 style="color:powderblue;"> World Series of Poker</h1>
-     <h2 style="color:powderblue;"> Player:</h2>
+     <h2 style="color:powderblue;"> Player: </h2>
      <h2 style="color:powderblue;"> Cards:</h2>
      <h2 style="color:powderblue;"> Score:</h2>
      
