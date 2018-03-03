@@ -70,8 +70,8 @@
         //Displays the Total / AVG Time for Games Played
     function displayTime()
     {
-        global $timeStart;
-        $timeInSeconds = microtime(true) - $timeStart;
+        global $startTime;
+        $timeInSeconds = microtime(true) - $startTime;
         echo "<h3>This Game Took: " . $timeInSeconds . " in seconds (MicroTime) </h3><br /><br/>";
         echo "<h3>Total Matches:"  . $_SESSION['gameCount'] . "</h3><br />";
         $_SESSION['finalTime'] += $timeInSeconds;
@@ -96,7 +96,7 @@
         }
         
         $max_score =  (max($possible_winning_scores_array));
-        echo $max_score;
+        //echo $max_score;
         $winning_index_array = array();
         
         for($index = 0;$index<4;$index++){
