@@ -70,8 +70,8 @@
         //Displays the Total / AVG Time for Games Played
     function displayTime()
     {
-        global $timeStart;
-        $timeInSeconds = microtime(true) - $timeStart;
+        global $startTime;
+        $timeInSeconds = microtime(true) - $startTime;
         echo "<h3>This Game Took: " . $timeInSeconds . " in seconds (MicroTime) </h3><br /><br/>";
         echo "<h3>Total Matches:"  . $_SESSION['gameCount'] . "</h3><br />";
         $_SESSION['finalTime'] += $timeInSeconds;
@@ -82,7 +82,6 @@
     
     //Display the winner base on a list of final score
     function displayWinner($score, $players)
-    
     {
         //print_r($score);
         
