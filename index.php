@@ -87,6 +87,11 @@
         
         //print_r($players);
         
+        $totalScore = 0;
+        for ($i = 0; $i < count($score); $i++)
+        {
+            $totalScore += $score[$i];
+        }
         $possible_winning_scores_array = array();
         
         for ($index=0; $index<4;$index++){
@@ -99,9 +104,20 @@
         //echo $max_score;
         $winning_index_array = array();
         
+        $nbreOfWinners = 0;
+        $finalScore = $totalScore;
         for($index = 0;$index<4;$index++){
-            if($score[$index]==$max_score){
-                echo "</br><h1>".$players[$index]." WINS! With ".$max_score." Points!</h1>";
+            if($score[$index]==$max_score)
+            {
+                $nbreOfWinners++;
+                $finalScore -= $max_score;
+                
+            }
+        }
+        for($index = 0;$index<4;$index++){
+            if($score[$index]==$max_score)
+            {
+                echo "</br><h1>".$players[$index]." WINS! With ". $finalScore ." Points!</h1>";
             }
         }
     }
